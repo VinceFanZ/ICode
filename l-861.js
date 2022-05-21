@@ -5,37 +5,37 @@
  * @return {number}
  */
 var matrixScore = function (A) {
-  const rowLen = A[0].length;
+  const rowLen = A[0].length
 
   let rowTransform = A.map((item) => {
     if (item[0] !== 1) {
-      return item.map((v) => (v === 0 ? 1 : 0));
+      return item.map((v) => (v === 0 ? 1 : 0))
     }
-    return item;
-  });
+    return item
+  })
 
   for (let i = 1; i < rowLen; i++) {
     const zeroCount = rowTransform.filter((item) => {
-      return item[i] === 0;
-    }).length;
+      return item[i] === 0
+    }).length
 
     if (zeroCount > rowTransform.length - zeroCount) {
       rowTransform.forEach((item) => {
         if (item[i] === 0) {
-          item[i] = 1;
+          item[i] = 1
         } else {
-          item[i] = 0;
+          item[i] = 0
         }
-      });
+      })
     }
   }
 
   return rowTransform
-    .map((item) => parseInt(item.join(""), 2))
+    .map((item) => parseInt(item.join(''), 2))
     .reduce((pre, cur) => {
-      return pre + cur;
-    }, 0);
-};
+      return pre + cur
+    }, 0)
+}
 
 // var matrixScore = function (A) {
 //   const m = A.length,
@@ -63,4 +63,4 @@ console.log(
     [1, 0, 1, 0],
     [1, 1, 0, 0]
   ])
-);
+)
