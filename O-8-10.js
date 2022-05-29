@@ -18,7 +18,7 @@ var fib = function (n) {
   return a
 }
 
-console.log(fib(5))
+console.log(fib(100))
 
 /**
  * 10- II. 青蛙跳台阶问题
